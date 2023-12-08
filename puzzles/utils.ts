@@ -30,3 +30,7 @@ export const getNumbers = (numStr: string) =>
     .split(' ')
     .filter((s) => _.trim(s) !== '')
     .map((s) => parseInt(s));
+
+export const gcd = (a: number, b: number) => (b == 0 ? a : gcd(b, a % b));
+export const lcm = (a: number, b: number) => (a / gcd(a, b)) * b;
+export const lcmAll = (ns: number[]) => ns.reduce(lcm, 1);
